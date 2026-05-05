@@ -18,7 +18,9 @@ public class AppForInsert
     	Session session1=factory.openSession();
     	Transaction tx=session1.beginTransaction();		//used with DML query
 
-    	Student s1=new Student(1,"Alice",78.5);  //insert into student values(1,"Alice",78.5)
+    	Student s1=new Student();  //insert into student values(1,"Alice",78.5)
+    	s1.setPer(98.5);
+    	s1.setSname("Chris");
     	session1.save(s1);	//
     	tx.commit();
     	

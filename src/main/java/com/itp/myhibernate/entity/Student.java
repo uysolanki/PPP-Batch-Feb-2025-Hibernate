@@ -1,17 +1,33 @@
 package com.itp.myhibernate.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity	//will create a table by the name of the class in the database
+        //by default table name == class name
+@Table(name="mystudent")
 public class Student {
 	
 	@Id
-	private int rno;
-	private String sname;
-	private double per;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	public Student() {} //NoArgsConstructor
+	@Column(name="rollnumber")			//scope? local/Instance/class
+	private int rno;				//instance
+	private String sname;			//instance
+	private double per;				//instance
+	
+	@Transient
+	private int temp;				//instance - it will be excluded in the db table
+	
+	static String schoolName="Kendra Vidhyalay";		//class
+	public Student() {
+		int x;		//local scope
+	} //NoArgsConstructor
 	public Student(int rno, String sname, double per) //AllArgsConstructor
 	{
 		super();

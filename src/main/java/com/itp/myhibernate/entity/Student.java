@@ -8,8 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity	//will create a table by the name of the class in the database
         //by default table name == class name
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Setter
+@Getter
+@Builder
 @Table(name="mystudent")
 public class Student {
 	
@@ -25,38 +38,6 @@ public class Student {
 	private int temp;				//instance - it will be excluded in the db table
 	
 	static String schoolName="Kendra Vidhyalay";		//class
-	public Student() {
-		int x;		//local scope
-	} //NoArgsConstructor
-	public Student(int rno, String sname, double per) //AllArgsConstructor
-	{
-		super();
-		this.rno = rno;
-		this.sname = sname;
-		this.per = per;
-	}
-	public int getRno() {				//Getter
-		return rno;
-	}
-	public void setRno(int rno) {		//Setter
-		this.rno = rno;
-	}
-	public String getSname() {
-		return sname;
-	}
-	public void setSname(String sname) {
-		this.sname = sname;
-	}
-	public double getPer() {
-		return per;
-	}
-	public void setPer(double per) {
-		this.per = per;
-	}
-	@Override
-	public String toString() {
-		return "Student [rno=" + rno + ", sname=" + sname + ", per=" + per + "]";
-	}
 	
 	
 
@@ -68,4 +49,6 @@ public class Student {
 /* B create table emp(
  * eno int(5) pk,
  * ename v(10)
+ * 
+ * lombok
  */

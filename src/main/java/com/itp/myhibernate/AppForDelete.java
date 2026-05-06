@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.itp.myhibernate.entity.Student;
 
-public class AppForBuilder 
+public class AppForDelete 
 {
     public static void main( String[] args )
     {
@@ -18,30 +18,10 @@ public class AppForBuilder
     	Session session1=factory.openSession();
     	Transaction tx=session1.beginTransaction();		//used with DML query
 
-    	Student s1= Student.builder()
-    			.sname("Alice")
-    			.per(98.7)
-    			.build();
-    	
-    	Student s2= Student.builder()
-    			.sname("Ben")
-    			.per(88.7)
-    			.build();
-    	
-    	Student s3= Student.builder()
-    			.sname("Chris")
-    			.per(78.7)
-    			.build();
-    	
-    	Student s4= Student.builder()
-    			.sname("David")
-    			.per(68.7)
-    			.build();
-    	
+    	Student s1=new Student();  //insert into student values(1,"Alice",78.5)
+    	s1.setPer(98.5);
+    	s1.setSname("Chris");
     	session1.save(s1);	//
-    	session1.save(s2);
-    	session1.save(s3);
-    	session1.save(s4);
     	tx.commit();
     	
     	session1.close();

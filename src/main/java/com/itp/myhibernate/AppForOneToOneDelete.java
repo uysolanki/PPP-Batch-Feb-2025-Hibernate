@@ -5,9 +5,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.itp.myhibernate.entity.ChiefMinister;
+import com.itp.myhibernate.entity.State;
 import com.itp.myhibernate.entity.Student;
 
-public class AppForDelete 
+public class AppForOneToOneDelete 
 {
     public static void main( String[] args )
     {
@@ -18,10 +20,9 @@ public class AppForDelete
     	Session session1=factory.openSession();				//brand new session
     	Transaction tx=session1.beginTransaction();		
     	
-    	Student stud1 =session1.get(Student.class, 1);			//will it query the DB? Yes
-    	session1.delete(stud1);									//proof : Select will displayed on the console
+    	State st1=session1.get(State.class, 1);
+    	session1.delete(st1);
     	tx.commit();
-    	
     	session1.close();
     	factory.close();
     	}

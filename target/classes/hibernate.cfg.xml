@@ -16,6 +16,9 @@
 
 
 		<mapping class="com.itp.myhibernate.entity.Student"/>
+		<mapping class="com.itp.myhibernate.entity.ChiefMinister"/>
+		<mapping class="com.itp.myhibernate.entity.State"/>
+		
 	</session-factory>
 </hibernate-configuration>
 	

@@ -20,8 +20,11 @@ public class AppForOneToOneDelete
     	Session session1=factory.openSession();				//brand new session
     	Transaction tx=session1.beginTransaction();		
     	
-    	State st1=session1.get(State.class, 1);
-    	session1.delete(st1);
+//    	State st1=session1.get(State.class, 1);
+//    	session1.delete(st1);
+    	
+    	ChiefMinister cm=session1.get(ChiefMinister.class, 2);
+    	session1.delete(cm);
     	tx.commit();
     	session1.close();
     	factory.close();

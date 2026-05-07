@@ -33,7 +33,7 @@ public class Dept {
 	private String dname;
 	private String city;
 	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "fkdno", referencedColumnName = "dno")
 	List<Employee> employees;
 }

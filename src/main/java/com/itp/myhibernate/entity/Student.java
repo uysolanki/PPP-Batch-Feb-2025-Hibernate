@@ -1,5 +1,6 @@
 package com.itp.myhibernate.entity;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +28,8 @@ import lombok.ToString;
 @Getter
 @Builder
 @Table(name="mystudent")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Student {
 	
 	@Id
